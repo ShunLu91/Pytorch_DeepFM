@@ -14,6 +14,7 @@ path = '/home/work/dataset/criteo/processed/'
 
 # load data
 train_data = CriteoDataset(path, train=True)
+print(len(train_data))
 loader_train = DataLoader(train_data, batch_size=50,
                           sampler=sampler.SubsetRandomSampler(range(Num_train)))
 val_data = CriteoDataset(path, train=True)
