@@ -12,7 +12,7 @@ from data.dataset import CriteoDataset
 # 900000 items for training, 10000 items for valid, of all 1000000 items
 Num_train = 900000
 path = '/home/work/dataset/criteo/processed/'
-gpu = 5
+gpu = 3
 
 # device
 if not torch.cuda.is_available():
@@ -28,10 +28,10 @@ train_data = CriteoDataset(path, train=True)
 # print(len(train_data))
 # import sys
 # exit(1)
-loader_train = DataLoader(train_data, batch_size=50,
+loader_train = DataLoader(train_data, batch_size=1024,
                           sampler=sampler.SubsetRandomSampler(range(Num_train)))
 val_data = CriteoDataset(path, train=True)
-loader_val = DataLoader(val_data, batch_size=50,
+loader_val = DataLoader(val_data, batch_size=1024,
                         sampler=sampler.SubsetRandomSampler(range(Num_train, 1000000)))
 
 feature_sizes = np.loadtxt(os.path.join(path, 'feature_sizes.txt'), delimiter=',')
