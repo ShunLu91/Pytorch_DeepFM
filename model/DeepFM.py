@@ -161,7 +161,7 @@ class DeepFM(nn.Module):
 #        print("2",torch.sum(fm_second_order, 1).shape)
 #        print("deep",torch.sum(deep_out, 1).shape)
 #        print("bias",bias.shape)
-        bias = torch.nn.Parameter(torch.randn(Xi.size(0))).to(self.device)
+        bias = torch.nn.Parameter(torch.randn(Xi.size(0)))
         total_sum = torch.sum(fm_first_order, 1) + \
                     torch.sum(fm_second_order, 1) + \
                     torch.sum(deep_out, 1) + bias
